@@ -43,3 +43,37 @@ int main()
 	printf("Average waiting time : %.2f\n",totalwt/(float)n); 
 	return 0;
 }
+
+// OUTPUT:
+// Enter the number of the process : 6
+// Enter the arrival time and bust time :
+//
+// Enter the arrival time 1 : 0
+// Enter the bust time 1 : 3
+//
+// Enter the arrival time 2 : 1
+// Enter the bust time 2 : 2
+//
+// Enter the arrival time 3 : 2
+// Enter the bust time 3 : 1
+//
+// Enter the arrival time 4 : 3
+// Enter the bust time 4 : 4
+//
+// Enter the arrival time 5 : 4
+// Enter the bust time 5 : 5
+//
+// Enter the arrival time 6 : 5
+// Enter the bust time 6 : 2
+//
+// solutions :
+//	P	AT	BT	CT	TAT	WT	 
+//
+//	1	0	3	3	3	0
+//	2	1	2	5	4	2
+//	3	2	1	6	4	3
+//	4	3	4	10	7	3
+//	5	4	5	15	11	6
+//	6	5	2	17	12	10
+// Average TAT time : 6.83
+// Average waiting time : 1.67
