@@ -77,7 +77,7 @@ int main()
 	} 
 	tavg = tsum/n;
 
-	printf("\nProcess\tBT\tTAT\tWT\tTAT\n");
+	printf("\nProcess\tBT\tAT\tWT\tTAT\n");
 	for(i=0;i<n;++i)
 		printf("\nP%d\t%d\t%d\t%d\t%d\n",p[i],bt[i],at[i],wt[i],tt[i]);
 	printf("\nAverage waiting time : %.2f",wavg);
@@ -109,7 +109,7 @@ Enter the burst time of 3 process: 7
 Enter arrival time of 4 process: 0
 Enter the burst time of 4 process: 8
 
-Process BT      TAT     WT      TAT
+Process BT      AT     WT      TAT
 
 P1      3       0       0       3
 
