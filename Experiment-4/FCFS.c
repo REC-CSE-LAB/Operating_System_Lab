@@ -14,7 +14,7 @@ int main()
 	{
 		printf("Enter the arrival time %d : ", i+1 );
 		scanf("%d",&at[i]);
-		printf("Enter the bust time %d : ", i+1 );
+		printf("Enter the burst time %d : ", i+1 );
 		scanf("%d",&bt[i]);
 		printf("\n");
 	}
@@ -49,22 +49,22 @@ int main()
 // Enter the arrival time and bust time :
 //
 // Enter the arrival time 1 : 0
-// Enter the bust time 1 : 3
+// Enter the burst time 1 : 3
 //
 // Enter the arrival time 2 : 1
-// Enter the bust time 2 : 2
+// Enter the burst time 2 : 2
 //
 // Enter the arrival time 3 : 2
-// Enter the bust time 3 : 1
+// Enter the burst time 3 : 1
 //
 // Enter the arrival time 4 : 3
-// Enter the bust time 4 : 4
+// Enter the burst time 4 : 4
 //
 // Enter the arrival time 5 : 4
-// Enter the bust time 5 : 5
+// Enter the burst time 5 : 5
 //
 // Enter the arrival time 6 : 5
-// Enter the bust time 6 : 2
+// Enter the burst time 6 : 2
 //
 // solutions :
 //	P	AT	BT	CT	TAT	WT	 
