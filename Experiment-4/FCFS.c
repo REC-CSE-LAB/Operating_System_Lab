@@ -9,7 +9,7 @@ int main()
 	system("clear");
 	printf("Enter the number of the process : ");
 	scanf("%d",&n);
-	printf("Enter the arrival time and bust time :\n\n");
+	printf("Enter the arrival time and burst time :\n\n");
 	for( int i = 0; i < n; ++i)
 	{
 		printf("Enter the arrival time %d : ", i+1 );
