@@ -17,7 +17,7 @@ step-3: read the number of processes to n and read the burst time
         and priority of the processes.
 
 step-4: sort the processes according to the priority by assigning
-        temp = p[i], p[j] = p[i], p[i] = temp, and their burst time
+        temp = p[j], p[j] = p[i], p[i] = temp, and their burst time
         and priority if(pp[i]>pp[j]) until i < n-1 and j < n as 
         they are initalized as i = 0 and j = i+1.
 
@@ -40,6 +40,13 @@ step-9: stop.
 
 */
 
+/*
+    Note :-
+    -----
+
+            Here, The priority increases as the priority number decreases
+        i.e, Lower the given priority number greater it's priority...
+*/
 
 // Source Code :
 #include <stdio.h>
