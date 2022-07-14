@@ -30,7 +30,8 @@ int main()
 				p[j] = p[i];
 				p[i] = temp;
 				temp = at[j];
-				at[j] = temp;
+				at[j] = at[i];
+				at[i] = temp;
 				temp = bt[j];
 				bt[j] = bt[i];
 				bt[i] = temp;
