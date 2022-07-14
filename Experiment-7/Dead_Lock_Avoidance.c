@@ -1,69 +1,91 @@
-// Aim:- To implement the program for the deadlock avoidance
-
 #include <stdio.h>
 
 int main()
 {
-	int alloc[10][10], max[10][10], need[10][10], avail[10];
-	int work[10], finish[10] = {0}, i, n, j, r, c = 0, p = 0;
-	int ss[0], f;
-	
-	printf("Enter the number of processes : ");
-	scanf("%d",&n);
-	
-	printf("Enter the number of resources : ");
-	scanf("%d",&r);
-	
-	puts("Enter the allocation matrix :-");
-	for( i = 0; i < n; ++i )
-		for( j = 0; j < r; ++j )
-			scanf("%d",&alloc[i][j]);
-			
-	puts("Enter the max matrix :-");
-	for( i = 0; i < n; i++ )
-		for( j = 0; j < r; j++ )
-			scanf("%d",&max[i][j]);
-			
-	puts("Enter the available matrix :-");
-	for( j = 0; j < r; j++ ) 
-		scanf("%d", &avail[j]);
-	
-	for( i = 0; i < n; i++ )
-		for( j = 0; j < r; j++ )
-			need[i][j] = max[i][j];
-			
-	while(1)
-	{
-		for( f = 0, i = 0; i < n; i++ )
-		{
-			if( finish[i] == 0 )
-				continue;
-			else
-				break;
-		}
-		if( j == r )
-		{
-			for( j = 0; j < r; j++ )
-				avail[i] += alloc[i][j];
-			f = 1;
-			finish[i] = 1;
-			ss[p++] = i+1;
-			c++;
-		}
-		if( f == 0)
-			break;
-		if( f == 0 || c == n )
-			break;
-		else
-		{
-			printf("safe sequence is: " );
-			for( i = 0; i < n; i++ )
-				printf("%d ",ss[i]);
-		}
-	}
-	getchar();
-	return 0;
+    int n, m, r, i, j, k;
+    printf("Enter the number of processes : ");
+    scanf("%d", &n);
+
+    printf("Enter the number of resources : ");
+    scanf("%d", &r);
+
+    int alloc[n][r], max[n][r], avail[r], need[n][r];
+    int f[n], ans[n], ind = 0, y = 0;
+
+    puts("Enter the allocation matrix :-");
+    for (i = 0; i < n; ++i)
+        for (j = 0; j < r; ++j)
+            scanf("%d", &alloc[i][j]);
+
+    puts("Enter the max matrix :-");
+    for (i = 0; i < n; i++)
+        for (j = 0; j < r; j++)
+            scanf("%d", &max[i][j]);
+
+    puts("Enter the available matrix :-");
+    for (j = 0; j < r; j++)
+        scanf("%d", &avail[j]);
+
+    // Initializing the finished array with zero
+    for (k = 0; k < n; k++)
+        f[k] = 0;
+
+    // Calculating the need value
+    for (i = 0; i < n; i++)
+        for (j = 0; j < r; j++)
+            need[i][j] = max[i][j] - alloc[i][j];
+
+    // Banker's Algorithm
+    for (k = 0; k < n; k++)
+    {
+        for (i = 0; i < n; i++)
+        {
+            if (f[i] == 0)
+            {
+                int flag = 0;
+                for (j = 0; j < r; j++)
+                {
+                    if (need[i][j] > avail[j])
+                    {
+                        flag = 1;
+                        break;
+                    }
+                }
+
+                if (flag == 0)
+                {
+                    ans[ind++] = i;
+                    for (y = 0; y < r; y++)
+                        avail[y] += alloc[i][y];
+                    f[i] = 1;
+                }
+            }
+        }
+    }
+
+    int flag = 1;
+
+    for (int i = 0; i < n; i++)
+    {
+        if (f[i] == 0)
+        {
+            flag = 0;
+            printf("The following system is not safe");
+            break;
+        }
+    }
+
+    if (flag == 1)
+    {
+        printf("Following is the SAFE Sequence\n");
+        for (i = 0; i < n - 1; i++)
+            printf(" P%d ->", ans[i]);
+        printf(" P%d", ans[n - 1]);
+    }
+
+    return 0;
 }
+
 
 /*
 	INPUT/OUTPUT :-
