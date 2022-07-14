@@ -21,7 +21,7 @@ int main()
 	for( int j = 0; j < n; ++j )
 	{
 		sum += bt[j];
-		ct[j] += sum;
+		ct[j] = sum;
 	}
 	for( int i = 0; i < n; ++i )
 	{
@@ -31,7 +31,7 @@ int main()
 	for( int k = 0; k < n; ++k )
 	{
 		wt[k] = tat[k]-bt[k];
-		totalwt = wt[k];
+		totalwt += wt[k];
 	}
 	printf("solutions :\n");
 	printf("P\tAT\tBT\tCT\tTAT\tWT\t \n\n");
